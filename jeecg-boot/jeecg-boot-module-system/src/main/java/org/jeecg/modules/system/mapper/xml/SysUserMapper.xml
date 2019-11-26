@@ -13,6 +13,9 @@
 		<if test="username!=null and username!=''">
 			and username = #{username}
 		</if>
+		<if test="isAdmin!=null and isAdmin!='' and isAdmin != '0'">
+			and username != 'admin'
+		</if>
 	</select>
 
 	<!-- 根据角色Id查询 -->

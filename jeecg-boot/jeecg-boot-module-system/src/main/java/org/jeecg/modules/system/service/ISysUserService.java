@@ -93,7 +93,7 @@ public interface ISysUserService extends IService<SysUser> {
 	 * @param
 	 * @return
 	 */
-	public IPage<SysUser> getUserByDepId(Page<SysUser> page, String departId, String username);
+	public IPage<SysUser> getUserByDepId(Page<SysUser> page, String departId, String username,String isAdmin);
 
     /**
      * 根据部门 Id 和 QueryWrapper 查询

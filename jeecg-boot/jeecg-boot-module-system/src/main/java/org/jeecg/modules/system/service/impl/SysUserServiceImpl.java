@@ -227,8 +227,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
 
 	// 根据部门Id查询
 	@Override
-	public IPage<SysUser> getUserByDepId(Page<SysUser> page, String departId,String username) {
-		return userMapper.getUserByDepId(page, departId,username);
+	public IPage<SysUser> getUserByDepId(Page<SysUser> page, String departId,String username,String isAdmin) {
+		return userMapper.getUserByDepId(page, departId,username,isAdmin);
 	}
 
 	@Override

@@ -13,13 +13,13 @@
           </div>
           <div class="account-center-detail">
             <p>
-              <i class="title"></i>交互专家
+              <i class="title"></i>搬砖家
             </p>
             <p>
-              <i class="group"></i>蚂蚁金服－某某某事业群－某某平台部－某某技术部－UED
+              <i class="group"></i>蚂蚁金服－高楼事业群－地基平台部－搬运技术部－UED
             </p>
             <p>
-              <i class="address"></i><span>浙江省</span><span>杭州市</span>
+              <i class="address"></i><span>湖南省</span><span>长沙市</span>
             </p>
           </div>
           <a-divider />
@@ -105,7 +105,7 @@
     },
     data() {
       return {
-        tags: ['很有想法的', '专注设计', '辣~', '大长腿', '川妹子', '海纳百川'],
+        tags: ['很有想法的', '专注设计', '辣~', '大长腿', '湘妹子', '海纳百川'],
 
         tagInputVisible: false,
         tagInputValue: '',
