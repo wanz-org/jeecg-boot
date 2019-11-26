@@ -18,7 +18,7 @@
         @click.native="toggle"/>
 
       <span v-if="device === 'desktop'">欢迎进入 教务管理系统</span>
-      <span v-else>Jeecg-Boot</span>
+      <span v-else>教务管理系统</span>
 
       <user-menu :theme="theme"/>
     </div>

@@ -105,8 +105,8 @@ public class SysUserController {
     public Result<IPage<SysUser>> queryPageList(SysUser user, @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
                                                 @RequestParam(name = "pageSize", defaultValue = "10") Integer pageSize, HttpServletRequest req) {
         Result<IPage<SysUser>> result = new Result<IPage<SysUser>>();
-        LoginUser loginUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
         QueryWrapper<SysUser> queryWrapper = QueryGenerator.initQueryWrapper(user, req.getParameterMap());
+        LoginUser loginUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
         queryWrapper.ne(!loginUser.getUsername().equals("admin"), "username", "admin");
         Page<SysUser> page = new Page<SysUser>(pageNo, pageSize);
         IPage<SysUser> pageList = sysUserService.page(page, queryWrapper);

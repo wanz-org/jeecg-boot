@@ -309,11 +309,11 @@
         form: this.$form.createForm(this),
         departId: '4f1765520d6346f9bd9c79e2479e5b12,57197590443c44f083d42ae24ef26a2c',
         userIds: 'admin',
-        multiUser: 'admin,jeecg',
+        multiUser: 'admin,sysadmin',
         jcheckbox: {
           values: 'spring,jeecgboot',
           options: [
-            { label: 'Jeecg', value: 'jeecg' },
+            { label: 'sysadmin', value: 'sysadmin' },
             { label: 'Jeecg-Boot', value: 'jeecgboot' },
             { label: 'Spring', value: 'spring', disabled: true },
             { label: 'MyBaits', value: 'mybatis' }

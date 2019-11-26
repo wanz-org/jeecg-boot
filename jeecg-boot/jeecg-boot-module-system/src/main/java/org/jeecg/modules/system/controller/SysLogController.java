@@ -5,8 +5,10 @@ import java.util.Arrays;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.SecurityUtils;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.system.query.QueryGenerator;
+import org.jeecg.common.system.vo.LoginUser;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysLog;
 import org.jeecg.modules.system.entity.SysRole;
@@ -52,6 +54,10 @@ public class SysLogController {
 									  @RequestParam(name="pageSize", defaultValue="10") Integer pageSize,HttpServletRequest req) {
 		Result<IPage<SysLog>> result = new Result<IPage<SysLog>>();
 		QueryWrapper<SysLog> queryWrapper = QueryGenerator.initQueryWrapper(syslog, req.getParameterMap());
+
+		LoginUser loginUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
+		queryWrapper.ne(!loginUser.getUsername().equals("admin"), "create_by", "admin");
+
 		Page<SysLog> page = new Page<SysLog>(pageNo, pageSize);
 		//日志关键词
 		String keyWord = req.getParameter("keyWord");

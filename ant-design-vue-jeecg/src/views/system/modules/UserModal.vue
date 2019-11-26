@@ -116,7 +116,7 @@
           <a-input placeholder="请输入座机" v-decorator="[ 'telephone', validatorRules.telephone]"/>
         </a-form-item>
 
-        <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="false">
           <j-dict-select-tag  v-decorator="['activitiSync', {}]" placeholder="请选择是否同步工作流引擎" :type="'radio'" :triggerChange="true" dictCode="activiti_sync"/>
         </a-form-item>
 

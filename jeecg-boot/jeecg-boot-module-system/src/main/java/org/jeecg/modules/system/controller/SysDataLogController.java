@@ -5,8 +5,10 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.shiro.SecurityUtils;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.system.query.QueryGenerator;
+import org.jeecg.common.system.vo.LoginUser;
 import org.jeecg.common.util.oConvertUtils;
 import org.jeecg.modules.system.entity.SysDataLog;
 import org.jeecg.modules.system.service.ISysDataLogService;
@@ -34,6 +36,10 @@ public class SysDataLogController {
 									  @RequestParam(name="pageSize", defaultValue="10") Integer pageSize,HttpServletRequest req) {
 		Result<IPage<SysDataLog>> result = new Result<IPage<SysDataLog>>();
 		QueryWrapper<SysDataLog> queryWrapper = QueryGenerator.initQueryWrapper(dataLog, req.getParameterMap());
+
+		LoginUser loginUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
+		queryWrapper.ne(!loginUser.getUsername().equals("admin"), "create_by", "admin");
+
 		Page<SysDataLog> page = new Page<SysDataLog>(pageNo, pageSize);
 		IPage<SysDataLog> pageList = service.page(page, queryWrapper);
 		log.info("查询当前页："+pageList.getCurrent());
