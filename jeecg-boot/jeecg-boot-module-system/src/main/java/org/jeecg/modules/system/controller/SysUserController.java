@@ -611,6 +611,9 @@ public class SysUserController {
             @RequestParam(name = "orgCode") String orgCode,
             SysUser userParams
     ) {
+        LoginUser sysUser = (LoginUser) SecurityUtils.getSubject().getPrincipal();
+        userParams.setUsername(sysUser.getUsername());
+
         IPage page = new Page(pageNo, pageSize);
         IPage<SysUserSysDepartModel> pageList = sysUserService.queryUserByOrgCode(orgCode, userParams, page);
         List<SysUserSysDepartModel> list = pageList.getRecords();
@@ -803,6 +806,7 @@ public class SysUserController {
 
     /**
      * 根据用户名或手机号查询用户信息
+     *
      * @param
      * @return
      */

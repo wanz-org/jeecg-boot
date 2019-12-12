@@ -1,8 +1,8 @@
 spring:
   profiles:
-    active: prod
+    active: dev
 swagger:
-  production: true
+  production: false
   basic:
     enable: false
     username: jeecg

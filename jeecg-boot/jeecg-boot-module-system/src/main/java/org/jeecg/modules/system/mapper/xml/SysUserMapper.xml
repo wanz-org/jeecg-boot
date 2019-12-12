@@ -59,6 +59,9 @@
 			<if test="userParams.workNo != null and userParams.workNo != ''">
 				AND sys_user.work_no LIKE '%${userParams.workNo}%'
 			</if>
+			<if test="userParams.username != null and userParams.username != '' and userParams.username != 'admin'">
+				AND sys_user.username != 'admin'
+			</if>
 		</if>
 	</sql>
 
